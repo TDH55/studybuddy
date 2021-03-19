@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D64" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="AudioRecording" representedClassName="AudioRecording" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isTranscribing" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="transcription" optional="YES" attributeType="String"/>
+        <attribute name="url" optional="YES" attributeType="URI"/>
+    </entity>
+    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="StudySet" representedClassName="StudySet" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="term" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="StudyTerm" inverseName="set" inverseEntity="StudyTerm"/>
+    </entity>
+    <entity name="StudyTerm" representedClassName="StudyTerm" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="definition" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isLearned" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="phrase" optional="YES" attributeType="String"/>
+        <relationship name="set" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StudySet" inverseName="term" inverseEntity="StudySet"/>
+    </entity>
+    <elements>
+        <element name="AudioRecording" positionX="-63" positionY="45" width="128" height="119"/>
+        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="StudySet" positionX="-63" positionY="-9" width="128" height="89"/>
+        <element name="StudyTerm" positionX="-54" positionY="0" width="128" height="119"/>
+    </elements>
+</model>
